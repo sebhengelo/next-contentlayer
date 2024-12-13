@@ -1,17 +1,19 @@
-import { allPosts } from "@/.contentlayer/generated"
-import Link from "next/link"
+import { Categories } from "@/components/categories"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="prose dark:prose-invert">
-      {allPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug}>
-            <h2>{post.title}</h2>
-          </Link>
-          {post.description && <p>{post.description}</p>}
-        </article>
-      ))}
+    <div className="container mx-auto px-4 py-8">
+      <section className="space-y-6">
+        <div className="text-center space-y-2">
+          <h1 className="text-4xl font-bold tracking-tighter">
+            Checklists for Every Scenario
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            Stay organized with our curated collection of checklists for life's many situations
+          </p>
+        </div>
+        <Categories />
+      </section>
     </div>
   )
 }
